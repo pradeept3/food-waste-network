@@ -1,0 +1,414 @@
+{
+  "historical_waste_data": {
+    "global_annual_waste": [
+      {
+        "year": 2010,
+        "total_waste_million_tons": 938,
+        "us_waste_million_tons": 56.7,
+        "percent_of_food_supply": 30,
+        "notes": "Baseline year for comparison"
+      },
+      {
+        "year": 2012,
+        "total_waste_million_tons": 945,
+        "us_waste_million_tons": 59.5,
+        "percent_of_food_supply": 32,
+        "notes": "Post-2008 recovery period"
+      },
+      {
+        "year": 2014,
+        "total_waste_million_tons": 952,
+        "us_waste_million_tons": 61.3,
+        "percent_of_food_supply": 34,
+        "notes": "Growing population impact"
+      },
+      {
+        "year": 2016,
+        "total_waste_million_tons": 975,
+        "us_waste_million_tons": 62.8,
+        "percent_of_food_supply": 35,
+        "notes": "SDG adoption year"
+      },
+      {
+        "year": 2018,
+        "total_waste_million_tons": 995,
+        "us_waste_million_tons": 63.9,
+        "percent_of_food_supply": 37,
+        "notes": "Initiatives beginning to show impact"
+      },
+      {
+        "year": 2020,
+        "total_waste_million_tons": 1008,
+        "us_waste_million_tons": 65.2,
+        "percent_of_food_supply": 38,
+        "notes": "COVID impact - increased home waste"
+      },
+      {
+        "year": 2022,
+        "total_waste_million_tons": 1015,
+        "us_waste_million_tons": 66.5,
+        "percent_of_food_supply": 39,
+        "notes": "Digital solutions accelerating"
+      },
+      {
+        "year": 2024,
+        "total_waste_million_tons": 1035,
+        "us_waste_million_tons": 68.1,
+        "percent_of_food_supply": 40,
+        "notes": "Current year baseline"
+      }
+    ],
+    "waste_by_source_us": {
+      "households": {
+        "percentage": 43,
+        "million_tons": 45,
+        "annual_growth": "1.2%"
+      },
+      "food_service": {
+        "percentage": 21,
+        "million_tons": 22,
+        "annual_growth": "0.8%"
+      },
+      "processing": {
+        "percentage": 20,
+        "million_tons": 21,
+        "annual_growth": "0.5%"
+      },
+      "retail": {
+        "percentage": 10,
+        "million_tons": 10,
+        "annual_growth": "1.5%"
+      },
+      "production": {
+        "percentage": 6,
+        "million_tons": 6,
+        "annual_growth": "2.1%"
+      }
+    },
+    "waste_by_food_type": {
+      "vegetables": {
+        "million_tons": 11.6,
+        "percentage": 15.8,
+        "trend": "decreasing"
+      },
+      "prepared_foods": {
+        "million_tons": 8.1,
+        "percentage": 11.0,
+        "trend": "increasing"
+      },
+      "grain_products": {
+        "million_tons": 9.8,
+        "percentage": 13.3,
+        "trend": "stable"
+      },
+      "fruits": {
+        "million_tons": 5.4,
+        "percentage": 7.3,
+        "trend": "stable"
+      },
+      "meat_seafood": {
+        "million_tons": 4.2,
+        "percentage": 5.7,
+        "trend": "increasing"
+      },
+      "dairy": {
+        "million_tons": 3.6,
+        "percentage": 4.9,
+        "trend": "decreasing"
+      },
+      "beverages": {
+        "million_tons": 2.8,
+        "percentage": 3.8,
+        "trend": "stable"
+      },
+      "other": {
+        "million_tons": 4.5,
+        "percentage": 6.1,
+        "trend": "stable"
+      }
+    },
+    "waste_by_stage": [
+      {
+        "stage": "on_farm_loss",
+        "percentage": 10,
+        "million_tons": 6.8,
+        "primary_cause": "Unmarketable produce, weather damage"
+      },
+      {
+        "stage": "processing_loss",
+        "percentage": 12,
+        "million_tons": 8.2,
+        "primary_cause": "Quality standards, inefficiency"
+      },
+      {
+        "stage": "retail_waste",
+        "percentage": 8,
+        "million_tons": 5.4,
+        "primary_cause": "Spoilage, overstock, aesthetic standards"
+      },
+      {
+        "stage": "consumer_waste",
+        "percentage": 65,
+        "million_tons": 44.3,
+        "primary_cause": "Poor planning, confusion, spoilage"
+      },
+      {
+        "stage": "food_service",
+        "percentage": 5,
+        "million_tons": 3.4,
+        "primary_cause": "Plate waste, overproduction"
+      }
+    ],
+    "economic_impact": {
+      "annual": [
+        {
+          "year": 2020,
+          "us_value_billion": 408,
+          "global_value_billion": 2.1,
+          "us_per_capita": 1234
+        },
+        {
+          "year": 2021,
+          "us_value_billion": 422,
+          "global_value_billion": 2.23,
+          "us_per_capita": 1276
+        },
+        {
+          "year": 2022,
+          "us_value_billion": 437,
+          "global_value_billion": 2.37,
+          "us_per_capita": 1321
+        },
+        {
+          "year": 2023,
+          "us_value_billion": 453,
+          "global_value_billion": 2.52,
+          "us_per_capita": 1369
+        },
+        {
+          "year": 2024,
+          "us_value_billion": 430,
+          "global_value_billion": 2.2,
+          "us_per_capita": 1300
+        }
+      ]
+    },
+    "environmental_impact": {
+      "greenhouse_gas_emissions": [
+        {
+          "year": 2010,
+          "co2_equivalent_billion_tons": 2.1,
+          "percentage_of_total_emissions": "8.5%"
+        },
+        {
+          "year": 2015,
+          "co2_equivalent_billion_tons": 2.5,
+          "percentage_of_total_emissions": "9.2%"
+        },
+        {
+          "year": 2020,
+          "co2_equivalent_billion_tons": 2.8,
+          "percentage_of_total_emissions": "9.8%"
+        },
+        {
+          "year": 2024,
+          "co2_equivalent_billion_tons": 3.3,
+          "percentage_of_total_emissions": "10.2%"
+        }
+      ],
+      "water_usage": [
+        {
+          "year": 2010,
+          "cubic_kilometers": 170,
+          "percentage_of_freshwater": "2.1%"
+        },
+        {
+          "year": 2015,
+          "cubic_kilometers": 200,
+          "percentage_of_freshwater": "2.4%"
+        },
+        {
+          "year": 2020,
+          "cubic_kilometers": 230,
+          "percentage_of_freshwater": "2.7%"
+        },
+        {
+          "year": 2024,
+          "cubic_kilometers": 250,
+          "percentage_of_freshwater": "2.9%"
+        }
+      ],
+      "land_usage": [
+        {
+          "year": 2010,
+          "billion_hectares": 0.95,
+          "percentage_of_arable_land": "6.8%"
+        },
+        {
+          "year": 2015,
+          "billion_hectares": 1.15,
+          "percentage_of_arable_land": "7.9%"
+        },
+        {
+          "year": 2020,
+          "billion_hectares": 1.28,
+          "percentage_of_arable_land": "8.7%"
+        },
+        {
+          "year": 2024,
+          "billion_hectares": 1.4,
+          "percentage_of_arable_land": "9.2%"
+        }
+      ]
+    },
+    "waste_recovery_organizations": [
+      {
+        "name": "Feeding America",
+        "country": "USA",
+        "meals_per_year": 4500000000,
+        "waste_diverted_mt": 2100000,
+        "established": 1979,
+        "member_food_banks": 200
+      },
+      {
+        "name": "Action Against Hunger",
+        "country": "Global (60+ countries)",
+        "meals_per_year": 650000000,
+        "waste_diverted_mt": 380000,
+        "established": 1979,
+        "member_food_banks": 45
+      },
+      {
+        "name": "Food For All",
+        "country": "India",
+        "meals_per_year": 1200000000,
+        "waste_diverted_mt": 890000,
+        "established": 2010,
+        "community_kitchens": 450
+      },
+      {
+        "name": "FEAD (European Food Banks)",
+        "country": "Europe",
+        "meals_per_year": 3800000000,
+        "waste_diverted_mt": 1650000,
+        "established": 1986,
+        "member_food_banks": 380
+      },
+      {
+        "name": "Too Good To Go",
+        "country": "Global",
+        "meals_per_year": 200000000,
+        "waste_diverted_mt": 127000,
+        "established": 2016,
+        "partner_restaurants": 95000
+      }
+    ],
+    "digital_solution_impact": {
+      "platforms": [
+        {
+          "name": "Too Good To Go",
+          "year_founded": 2016,
+          "users_millions": 100,
+          "meals_saved_millions": 200,
+          "waste_reduction_percent": 28
+        },
+        {
+          "name": "Olio",
+          "year_founded": 2015,
+          "users_millions": 6,
+          "meals_saved_millions": 15,
+          "waste_reduction_percent": 22
+        },
+        {
+          "name": "Food Rescue US",
+          "year_founded": 2013,
+          "users_millions": 2,
+          "meals_saved_millions": 25,
+          "waste_reduction_percent": 18
+        },
+        {
+          "name": "Kitche",
+          "year_founded": 2016,
+          "users_millions": 1.2,
+          "meals_saved_millions": 8,
+          "waste_reduction_percent": 30
+        }
+      ],
+      "impact_summary": {
+        "total_users_millions": 109.2,
+        "total_meals_saved_millions": 248,
+        "average_waste_reduction": "24.5%",
+        "growth_rate": "45% annually"
+      }
+    },
+    "reduction_opportunity_areas": [
+      {
+        "area": "Consumer Behavior Education",
+        "potential_reduction_percent": 12.5,
+        "implementation_cost": "low",
+        "timeline_years": 2,
+        "priority": "high"
+      },
+      {
+        "area": "Food Donation Infrastructure",
+        "potential_reduction_percent": 20,
+        "implementation_cost": "high",
+        "timeline_years": 3,
+        "priority": "high"
+      },
+      {
+        "area": "Standardized Date Labels",
+        "potential_reduction_percent": 20,
+        "implementation_cost": "medium",
+        "timeline_years": 2,
+        "priority": "high"
+      },
+      {
+        "area": "Better Food Packaging",
+        "potential_reduction_percent": 10,
+        "implementation_cost": "medium",
+        "timeline_years": 3,
+        "priority": "medium"
+      },
+      {
+        "area": "Retail Discounting Programs",
+        "potential_reduction_percent": 15,
+        "implementation_cost": "low",
+        "timeline_years": 1,
+        "priority": "high"
+      },
+      {
+        "area": "AI Demand Forecasting",
+        "potential_reduction_percent": 17.5,
+        "implementation_cost": "high",
+        "timeline_years": 2,
+        "priority": "medium"
+      }
+    ],
+    "sample_organization_baseline": {
+      "monthly_trend_kg": [
+        { "month": "January", "waste_kg": 2400, "meals_provided": 1846, "co2_saved_kg": 1200, "water_saved_liters": 1800 },
+        { "month": "February", "waste_kg": 2200, "meals_provided": 1692, "co2_saved_kg": 1100, "water_saved_liters": 1650 },
+        { "month": "March", "waste_kg": 2100, "meals_provided": 1615, "co2_saved_kg": 1050, "water_saved_liters": 1575 },
+        { "month": "April", "waste_kg": 1950, "meals_provided": 1500, "co2_saved_kg": 975, "water_saved_liters": 1463 },
+        { "month": "May", "waste_kg": 1800, "meals_provided": 1385, "co2_saved_kg": 900, "water_saved_liters": 1350 },
+        { "month": "June", "waste_kg": 1700, "meals_provided": 1308, "co2_saved_kg": 850, "water_saved_liters": 1275 },
+        { "month": "July", "waste_kg": 1650, "meals_provided": 1269, "co2_saved_kg": 825, "water_saved_liters": 1238 },
+        { "month": "August", "waste_kg": 1600, "meals_provided": 1231, "co2_saved_kg": 800, "water_saved_liters": 1200 },
+        { "month": "September", "waste_kg": 1550, "meals_provided": 1192, "co2_saved_kg": 775, "water_saved_liters": 1163 },
+        { "month": "October", "waste_kg": 1500, "meals_provided": 1154, "co2_saved_kg": 750, "water_saved_liters": 1125 },
+        { "month": "November", "waste_kg": 1450, "meals_provided": 1115, "co2_saved_kg": 725, "water_saved_liters": 1088 },
+        { "month": "December", "waste_kg": 1400, "meals_provided": 1077, "co2_saved_kg": 700, "water_saved_liters": 1050 }
+      ],
+      "annual_summary": {
+        "total_waste_kg": 21950,
+        "total_meals_provided": 16886,
+        "total_co2_saved_kg": 10975,
+        "total_water_saved_liters": 15113,
+        "waste_reduction_percent": 41.7,
+        "monthly_reduction_rate": 3.5,
+        "economic_value": 18200
+      }
+    }
+  }
+}

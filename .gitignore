@@ -1,0 +1,435 @@
+# Food Waste Reduction Network - .gitignore
+# Location: Root directory
+
+# ============================================
+# Python
+# ============================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.c
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============================================
+# Node / React / Frontend
+# ============================================
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Production builds
+dist/
+dist-ssr/
+build/
+.next/
+out/
+.nuxt/
+.cache/
+
+# Testing
+coverage/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Parcel
+.parcel-cache
+
+# ============================================
+# Database
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# PostgreSQL
+*.pgsql
+*.dump
+
+# MySQL
+*.sql
+*.mysql
+
+# ============================================
+# Environment Variables
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+*.env
+
+# Keep example env files
+!.env.example
+!.env.sample
+
+# ============================================
+# Docker
+# ============================================
+docker-compose.override.yml
+.dockerignore
+
+# ============================================
+# Machine Learning Models
+# ============================================
+# Trained models
+models/*.pkl
+models/*.h5
+models/*.pt
+models/*.pth
+models/*.ckpt
+models/*.pb
+models/*.joblib
+models/*.model
+
+# Keep the models directory
+!models/.gitkeep
+
+# Model checkpoints
+checkpoints/
+*.ckpt
+
+# TensorFlow
+*.tfrecord
+*.tfevents.*
+
+# PyTorch
+lightning_logs/
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+log/
+*.log.*
+
+# ============================================
+# OS Files
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# IDEs and Editors
+# ============================================
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Temporary Items
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~.nib
+local.properties
+
+# ============================================
+# Media Files (Optional - Uncomment if needed)
+# ============================================
+# Uploaded files
+# uploads/
+# media/
+# static/media/
+
+# Large files
+# *.mp4
+# *.avi
+# *.mov
+# *.wmv
+# *.flv
+# *.webm
+
+# ============================================
+# Documentation
+# ============================================
+# Sphinx documentation
+docs/_build/
+docs/.doctrees/
+
+# MkDocs
+site/
+
+# ============================================
+# SSL Certificates
+# ============================================
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+ssl/
+certs/
+
+# Keep example certificates
+!ssl/.gitkeep
+!certs/.gitkeep
+
+# ============================================
+# Backups
+# ============================================
+backup/
+backups/
+*.backup
+*.old
+
+# ============================================
+# Monitoring & Analytics
+# ============================================
+# Prometheus
+prometheus/data/
+
+# Grafana
+grafana/data/
+
+# ============================================
+# Testing
+# ============================================
+.pytest_cache/
+.coverage
+htmlcov/
+test-results/
+.nyc_output/
+
+# ============================================
+# CI/CD
+# ============================================
+.github/workflows/*.log
+
+# ============================================
+# Misc
+# ============================================
+# Secrets
+secrets/
+*.secret
+
+# Configs with sensitive data
+config.local.js
+config.local.py
+
+# Debug files
+debug.log
+debug/
+
+# Lock files (keep package-lock.json and poetry.lock)
+# Uncomment if you want to ignore them:
+# package-lock.json
+# yarn.lock
+# poetry.lock
+# Pipfile.lock
+
+# ============================================
+# Project Specific
+# ============================================
+# Food waste specific uploads
+food-images/
+transaction-data/
+export-data/
+
+# Local development data
+local-data/
+seed-data/local/
+
+# Performance profiling
+*.prof
+*.pyprof
+
+# Keep important directories
+!.gitkeep
+!README.md

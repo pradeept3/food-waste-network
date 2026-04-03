@@ -1,0 +1,22 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fruitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFC107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57C00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#fruitGradient)"/>
+  <!-- Apple -->
+  <circle cx="60" cy="80" r="22" fill="#C62828"/>
+  <path d="M 60 58 Q 65 50 60 45" stroke="#558B2F" stroke-width="2" fill="none"/>
+  <!-- Banana -->
+  <path d="M 100 70 Q 120 75 130 95 Q 135 105 125 110" stroke="#FFD54F" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <!-- Orange -->
+  <circle cx="110" cy="140" r="18" fill="#FF9800"/>
+  <circle cx="105" cy="135" r="3" fill="#FFF9C4" opacity="0.6"/>
+  <circle cx="115" cy="135" r="3" fill="#FFF9C4" opacity="0.6"/>
+  <circle cx="110" cy="145" r="3" fill="#FFF9C4" opacity="0.6"/>
+  <!-- Leaf -->
+  <ellipse cx="130" cy="50" rx="10" ry="15" fill="#558B2F" transform="rotate(45 130 50)"/>
+  <text x="100" y="175" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Fresh Fruits</text>
+</svg>
