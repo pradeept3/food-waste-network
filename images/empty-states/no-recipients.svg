@@ -1,0 +1,21 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="recipientGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E1BEE7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#recipientGradient)"/>
+  <!-- Add person icon -->
+  <circle cx="150" cy="80" r="35" fill="#CE93D8" stroke="#7B1FA2" stroke-width="2"/>
+  <path d="M 115 150 Q 115 130 150 130 Q 185 130 185 150 L 185 195 Q 185 210 170 210 L 130 210 Q 115 210 115 195 Z" fill="#CE93D8" stroke="#7B1FA2" stroke-width="2"/>
+  <!-- Plus sign -->
+  <circle cx="200" cy="175" r="25" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+  <line x1="200" y1="160" x2="200" y2="190" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <line x1="185" y1="175" x2="215" y2="175" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <!-- Decorative elements -->
+  <circle cx="80" cy="250" r="20" fill="#81C784" opacity="0.5"/>
+  <circle cx="240" cy="240" r="28" fill="#FFB74D" opacity="0.5"/>
+  <path d="M 140 250 L 160 250 Q 165 250 165 255 L 165 270 Q 165 275 160 275 L 140 275 Q 135 275 135 270 L 135 255 Q 135 250 140 250" fill="#AB47BC" opacity="0.6"/>
+  <text x="150" y="290" font-size="18" fill="#7B1FA2" text-anchor="middle" font-weight="bold">Add Recipients</text>
+</svg>

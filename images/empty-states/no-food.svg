@@ -1,0 +1,23 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="emptyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E3F2FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BBDEFB;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#emptyGradient)"/>
+  <!-- Box illustration -->
+  <rect x="80" y="60" width="140" height="120" fill="#90CAF9" stroke="#1976D2" stroke-width="2"/>
+  <path d="M 80 60 L 120 30 L 260 30 L 220 60 Z" fill="#64B5F6" stroke="#1976D2" stroke-width="2"/>
+  <path d="M 220 60 L 260 30 L 260 90 L 220 120 Z" fill="#2196F3" stroke="#1976D2" stroke-width="2"/>
+  <!-- Inside box glow -->
+  <circle cx="150" cy="120" r="30" fill="#FFEB3B" opacity="0.7"/>
+  <!-- Plus sign -->
+  <line x1="150" y1="105" x2="150" y2="135" stroke="#1976D2" stroke-width="4" stroke-linecap="round"/>
+  <line x1="135" y1="120" x2="165" y2="120" stroke="#1976D2" stroke-width="4" stroke-linecap="round"/>
+  <!-- Decorative elements -->
+  <circle cx="60" cy="240" r="30" fill="#81C784" opacity="0.5"/>
+  <circle cx="240" cy="250" r="25" fill="#64B5F6" opacity="0.5"/>
+  <path d="M 150 200 Q 140 220 150 240 Q 160 220 150 200" fill="#FF7043" opacity="0.6"/>
+  <text x="150" y="280" font-size="18" fill="#1976D2" text-anchor="middle" font-weight="bold">No food items yet</text>
+</svg>
