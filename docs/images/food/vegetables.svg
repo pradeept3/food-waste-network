@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vegGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#vegGradient)"/>
+  <!-- Broccoli -->
+  <circle cx="60" cy="80" r="25" fill="#1B5E20"/>
+  <path d="M 60 105 Q 50 120 50 140" stroke="#558B2F" stroke-width="3" fill="none"/>
+  <!-- Carrot -->
+  <path d="M 120 70 L 140 100 L 130 110 L 110 80 Z" fill="#FF6F00"/>
+  <!-- Tomato -->
+  <circle cx="100" cy="130" r="20" fill="#D32F2F"/>
+  <path d="M 100 110 Q 95 105 100 105 Q 105 105 100 110" fill="#558B2F"/>
+  <!-- Leaf decoration -->
+  <ellipse cx="140" cy="60" rx="8" ry="12" fill="#558B2F" transform="rotate(-30 140 60)"/>
+  <text x="100" y="175" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Fresh Vegetables</text>
+</svg>

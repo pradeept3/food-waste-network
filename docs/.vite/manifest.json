@@ -1,0 +1,26 @@
+{
+  "_chart-vendor-yGbDXcdA.js": {
+    "file": "assets/js/chart-vendor-yGbDXcdA.js",
+    "name": "chart-vendor",
+    "imports": [
+      "_react-vendor-D-XgqoRR.js"
+    ]
+  },
+  "_react-vendor-D-XgqoRR.js": {
+    "file": "assets/js/react-vendor-D-XgqoRR.js",
+    "name": "react-vendor"
+  },
+  "index.html": {
+    "file": "assets/js/index-DYrapgkp.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_react-vendor-D-XgqoRR.js",
+      "_chart-vendor-yGbDXcdA.js"
+    ],
+    "css": [
+      "assets/index-D5hvUnWl.css"
+    ]
+  }
+}

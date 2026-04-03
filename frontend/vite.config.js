@@ -171,7 +171,7 @@ export default defineConfig({
   envPrefix: 'VITE_',
 
   // Base public path
-  base: '/food-waste-network/',
+  base: '/',
 
   // Public directory
   publicDir: 'public',
