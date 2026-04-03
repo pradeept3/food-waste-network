@@ -150,8 +150,10 @@ const getCategoryImage = (category) => {
 1. Save banner to `/images/dashboard/banner.jpg`
 2. Update DashboardHero.jsx:
 ```jsx
+{% raw %}
 <div className="absolute inset-0 bg-cover opacity-20" 
      style={{backgroundImage: 'url(/images/dashboard/banner.jpg)'}}></div>
+{% endraw %}
 ```
 
 ### Add Recipient Organization Images

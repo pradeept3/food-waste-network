@@ -336,6 +336,7 @@ const taxSavings = yearlyDeduction * 0.30; // Assuming 30% tax rate
 
 #### Implementation A: Planning Dashboard
 ```jsx
+{% raw %}
 // New tab/section for recipients
 <div className="space-y-6">
   <div className="bg-white rounded-lg shadow p-6">
@@ -378,6 +379,7 @@ const taxSavings = yearlyDeduction * 0.30; // Assuming 30% tax rate
     </div>
   </div>
 </div>
+{% endraw %}
 ```
 
 ---
