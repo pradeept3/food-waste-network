@@ -6,6 +6,7 @@ from typing import List, Optional
 from datetime import datetime, timedelta
 import uvicorn
 from enum import Enum
+from sqlalchemy.orm import Session
 from gemini_service import (
     match_recipients_with_surplus,
     generate_waste_predictions,
@@ -13,6 +14,12 @@ from gemini_service import (
     chat_with_ai,
     gemini_available
 )
+from database import SessionLocal, get_db, Base, engine
+from database import User as DBUser
+from database import FoodItem as DBFoodItem
+from database import Recipient as DBRecipient
+from database import Transaction as DBTransaction
+from database import Prediction as DBPrediction
 from database import SessionLocal, get_db, Base, engine, User, FoodItem, Recipient, Transaction, Prediction
 from sqlalchemy.orm import Session
 
@@ -100,21 +107,20 @@ class UserResponse(UserBase):
     class Config:
         from_attributes = True
 
-class FoodItem(BaseModel):
+class FoodItemResponse(BaseModel):
     id: int
-    provider_id: int
     name: str
     quantity: float
     unit: str
     category: str
-    expiry_date: datetime
-    status: FoodStatus
-    estimated_value: float
     description: Optional[str] = None
-    image_url: Optional[str] = None
+    status: str
     created_at: datetime
-    latitude: float
-    longitude: float
+    expires_at: Optional[datetime] = None
+    user_id: int
+    
+    class Config:
+        from_attributes = True
 
 class FoodItemCreate(BaseModel):
     name: str
@@ -133,17 +139,17 @@ class SurplusPrediction(BaseModel):
     confidence_score: float
     reasoning: str
 
-class Transaction(BaseModel):
+class TransactionResponse(BaseModel):
     id: int
-    food_item_id: int
-    provider_id: int
-    receiver_id: int
+    food_id: int
+    from_user_id: int
+    to_recipient_id: Optional[int] = None
     quantity: float
-    transaction_fee: float
     status: str
-    scheduled_pickup: datetime
-    actual_pickup: Optional[datetime] = None
     created_at: datetime
+    
+    class Config:
+        from_attributes = True
 
 class ImpactMetrics(BaseModel):
     total_food_saved_kg: float
@@ -506,44 +512,86 @@ def get_current_user(current_user: dict = Depends(verify_token)):
     return user_data
 
 # Food Item Management
-@app.post("/api/food-items", response_model=FoodItem, status_code=status.HTTP_201_CREATED)
-def create_food_item(item: FoodItemCreate, current_user: dict = Depends(verify_token_optional)):
+@app.post("/api/food-items", response_model=FoodItemResponse, status_code=status.HTTP_201_CREATED)
+def create_food_item(item: FoodItemCreate, current_user: dict = Depends(verify_token_optional), db: Session = Depends(get_db)):
     """Create a new surplus food listing"""
-    item_id = len(food_items_db) + 1
-    food_data = item.dict()
-    food_data['id'] = item_id
-    food_data['provider_id'] = current_user.get('user_id', 1)
-    food_data['status'] = FoodStatus.AVAILABLE
-    food_data['created_at'] = datetime.now()
-    food_data['latitude'] = 37.7749  # Mock coordinates
-    food_data['longitude'] = -122.4194
-    food_items_db[item_id] = food_data
-    return food_data
+    try:
+        new_food_item = DBFoodItem(
+            name=item.name,
+            quantity=item.quantity,
+            unit=item.unit,
+            category=item.category,
+            description=item.description,
+            user_id=current_user.get('user_id', 1),
+            status='available',
+            created_at=datetime.now(),
+            expires_at=item.expiry_date
+        )
+        db.add(new_food_item)
+        db.commit()
+        db.refresh(new_food_item)
+        print(f"✅ Food item created in MySQL database: ID={new_food_item.id}, Name={new_food_item.name}")
+        return new_food_item
+    except Exception as e:
+        db.rollback()
+        print(f"❌ Database error creating food item: {e}")
+        # Fallback to in-memory storage
+        item_id = len(food_items_db) + 1
+        food_data = item.dict()
+        food_data['id'] = item_id
+        food_data['user_id'] = current_user.get('user_id', 1)
+        food_data['status'] = 'available'
+        food_data['created_at'] = datetime.now()
+        food_items_db[item_id] = food_data
+        print(f"⚠️  Stored food item in fallback in-memory database: {food_data}")
+        return food_data
 
-@app.get("/api/food-items", response_model=List[FoodItem])
+@app.get("/api/food-items", response_model=List[FoodItemResponse])
 def get_available_food(
     latitude: Optional[float] = None,
     longitude: Optional[float] = None,
     radius_km: Optional[float] = 10,
     category: Optional[str] = None,
-    current_user: dict = Depends(verify_token_optional)
+    current_user: dict = Depends(verify_token_optional),
+    db: Session = Depends(get_db)
 ):
     """Get available food items with optional filters"""
-    items = [item for item in food_items_db.values() 
-             if item['status'] == FoodStatus.AVAILABLE]
-    
-    if category:
-        items = [item for item in items if item['category'] == category]
-    
-    # In production, implement actual distance calculation
-    return items[:20]  # Limit results
+    try:
+        query = db.query(DBFoodItem).filter(DBFoodItem.status == 'available')
+        
+        if category:
+            query = query.filter(DBFoodItem.category == category)
+        
+        items = query.limit(20).all()
+        print(f"✅ Retrieved {len(items)} available food items from database")
+        return items
+    except Exception as e:
+        print(f"❌ Database error fetching food items: {e}")
+        # Fallback to in-memory data
+        items = [item for item in food_items_db.values() 
+                 if item['status'] == 'available']
+        if category:
+            items = [item for item in items if item['category'] == category]
+        return items[:20]
 
-@app.get("/api/food-items/{item_id}", response_model=FoodItem)
-def get_food_item(item_id: int):
+@app.get("/api/food-items/{item_id}", response_model=FoodItemResponse)
+def get_food_item(item_id: int, db: Session = Depends(get_db)):
     """Get specific food item details"""
-    if item_id not in food_items_db:
+    try:
+        food_item = db.query(DBFoodItem).filter(DBFoodItem.id == item_id).first()
+        if not food_item:
+            # Check fallback in-memory database
+            if item_id in food_items_db:
+                return food_items_db[item_id]
+            raise HTTPException(status_code=404, detail="Food item not found")
+        return food_item
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"❌ Database error fetching food item {item_id}: {e}")
+        if item_id in food_items_db:
+            return food_items_db[item_id]
         raise HTTPException(status_code=404, detail="Food item not found")
-    return food_items_db[item_id]
 
 # Recipients API
 @app.get("/api/recipients", response_model=List[RecipientResponse])
@@ -551,7 +599,7 @@ def get_recipients(db: Session = Depends(get_db)):
     """Get all available recipients (NGOs, shelters, food banks, etc.)"""
     try:
         # Get recipients from database
-        recipients = db.query(Recipient).all()
+        recipients = db.query(DBRecipient).all()
         if recipients:
             return recipients
     except Exception as e:
@@ -579,7 +627,7 @@ def create_recipient(
 ):
     """Add a new recipient organization"""
     try:
-        new_recipient = Recipient(
+        new_recipient = DBRecipient(
             name=recipient_data.name,
             type=recipient_data.type,
             address=recipient_data.address,
@@ -617,17 +665,17 @@ def create_donation(
     """Create a donation/transaction and save to database"""
     try:
         # Verify food item exists
-        food_item = db.query(FoodItem).filter(FoodItem.id == donation.food_item_id).first()
+        food_item = db.query(DBFoodItem).filter(DBFoodItem.id == donation.food_item_id).first()
         if not food_item:
             raise HTTPException(status_code=404, detail="Food item not found")
         
         # Verify recipient exists
-        recipient = db.query(Recipient).filter(Recipient.id == donation.recipient_id).first()
+        recipient = db.query(DBRecipient).filter(DBRecipient.id == donation.recipient_id).first()
         if not recipient:
             raise HTTPException(status_code=404, detail="Recipient not found")
         
         # Create transaction
-        transaction = Transaction(
+        transaction = DBTransaction(
             food_id=donation.food_item_id,
             from_user_id=current_user.get('user_id', 1),
             to_recipient_id=donation.recipient_id,
@@ -840,7 +888,7 @@ def reserve_food_item(item_id: int, current_user: dict = Depends(verify_token)):
         raise HTTPException(status_code=404, detail="Food item not found")
     
     item = food_items_db[item_id]
-    if item['status'] != FoodStatus.AVAILABLE:
+    if item['status'] != 'available':
         raise HTTPException(status_code=400, detail="Item not available")
     
     transaction_id = len(transactions_db) + 1
@@ -858,11 +906,11 @@ def reserve_food_item(item_id: int, current_user: dict = Depends(verify_token)):
     }
     
     transactions_db[transaction_id] = transaction
-    item['status'] = FoodStatus.RESERVED
+    item['status'] = 'reserved'
     
     return transaction
 
-@app.get("/api/transactions", response_model=List[Transaction])
+@app.get("/api/transactions", response_model=List[TransactionResponse])
 def get_transactions(current_user: dict = Depends(verify_token)):
     """Get user's transaction history"""
     user_id = current_user['user_id']
