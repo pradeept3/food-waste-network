@@ -87,6 +87,25 @@ const App = () => {
     }
   }, []);
 
+  // Listen for logout events from API interceptor
+  useEffect(() => {
+    const handleLogout = () => {
+      setIsLoggedIn(false);
+      setUser({ 
+        name: 'Demo User', 
+        email: 'demo@foodwaste.com',
+        user_type: 'restaurant',
+        is_admin: false,
+        is_active: true
+      });
+      setActiveTab('dashboard');
+      setShowRegister(false);
+    };
+
+    window.addEventListener('auth:logout', handleLogout);
+    return () => window.removeEventListener('auth:logout', handleLogout);
+  }, []);
+
   // Fetch data from backend on component mount
   useEffect(() => {
     if (!isLoggedIn) return; // Don't fetch if not logged in
@@ -707,7 +726,7 @@ const App = () => {
                       onClick={() => {
                         localStorage.removeItem('token');
                         localStorage.removeItem('user');
-                        setIsLoggedIn(false);
+                        window.dispatchEvent(new CustomEvent('auth:logout'));
                         setShowUserMenu(false);
                       }}
                       className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-50"
